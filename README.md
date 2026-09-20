@@ -1,39 +1,39 @@
 # Artemis Background Remover
 
-Artemis Background Remover is a powerful, standalone GUI application designed for removing backgrounds and precisely editing transparency masks of images and avatars.
+Artemis Background Removerは、画像やアバターの背景除去と透過マスクの精密な編集を行うための、高機能なスタンドアロンGUIアプリケーションです。
 
-## Features
-- **AI Background Removal**: Automatically remove image backgrounds using `rembg`.
-- **Smart Flood Fill**: Intelligently remove contiguous regions of similar colors with an adjustable tolerance slider.
-- **Manual Brush Tools**: Use the erase and restore brushes with adjustable brush sizes to fine-tune masks.
-- **High-Performance Infinite Zoom & Pan**: A hardware-accelerated viewport-based rendering engine allows zooming up to 4000% without lag.
-- **Dark Mode UI**: A premium, modern dark mode interface built with CustomTkinter.
+## 特徴
+- **AIによる背景除去**: `rembg` を使用して画像の背景を自動的に除去します。
+- **スマートフラッドフィル**: 調整可能な許容度スライダーで、類似色の連続した領域をインテリジェントに除去します。
+- **手動ブラシツール**: 消しゴム・復元ブラシをブラシサイズ調整とともに使用し、マスクを微調整できます。
+- **高性能な無限ズーム＆パン**: ハードウェアアクセラレーションによるビューポートベースの描画エンジンにより、4000%までラグなくズームできます。
+- **ダークモードUI**: CustomTkinterで構築された、モダンで高品質なダークモードインターフェースです。
 
-## Installation
+## インストール
 
-We recommend using a virtual environment:
+仮想環境の使用を推奨します:
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate  # On Windows, use .venv\Scripts\activate
+source .venv/bin/activate  # Windowsの場合は .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-## Usage
+## 使い方
 
-Run the main application:
+メインアプリケーションを起動します:
 
 ```bash
 python main.py
 ```
 
-### Controls
-- **Scroll Wheel**: Vertical Pan / Zoom (with Ctrl/Cmd)
-- **Shift + Scroll**: Horizontal Pan
-- **Right Click / Middle Click / Space+Drag**: Pan Canvas
-- **Left Click**: Apply the selected tool (Fill / Erase / Restore)
+### 操作方法
+- **スクロールホイール**: 垂直パン / ズーム（Ctrl/Cmdと併用）
+- **Shift + スクロール**: 水平パン
+- **右クリック / 中クリック / Space+ドラッグ**: キャンバスのパン
+- **左クリック**: 選択中のツール（フィル / 消しゴム / 復元）を適用
 
-## License
+## ライセンス
 
-This project is licensed under the GNU General Public License v3.0 (GPLv3).
-See the `LICENSE` file for more details.
+このプロジェクトはGNU General Public License v3.0 (GPLv3)のもとでライセンスされています。
+詳細は `LICENSE` ファイルを参照してください。
