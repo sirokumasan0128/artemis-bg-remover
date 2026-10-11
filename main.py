@@ -407,7 +407,7 @@ class AvatarEditorApp(ctk.CTk):
         except Exception as e:
             self.attributes("-topmost", False)
             messagebox.showerror("エラー", f"画像の読み込みに失敗しました:\n{e}")
-            self.attributes("-topmost", True)
+            self.lift()
             
     def load_fallback_image(self):
         # ワークスペース内の preset アバターを探索
@@ -437,7 +437,7 @@ class AvatarEditorApp(ctk.CTk):
             parent=self,
             filetypes=[("PNG Images", "*.png"), ("All Files", "*.*")]
         )
-        self.attributes("-topmost", True)
+        self.lift()  # ダイアログの裏に隠れないよう前面に引き上げるだけ（永続的な最前面固定はしない）
         if path:
             self.load_image(path)
             
@@ -450,7 +450,7 @@ class AvatarEditorApp(ctk.CTk):
                 defaultextension=".png",
                 filetypes=[("PNG Image", "*.png")]
             )
-            self.attributes("-topmost", True)
+            self.lift()  # ダイアログの裏に隠れないよう前面に引き上げるだけ（永続的な最前面固定はしない）
             if not path:
                 return
             self.image_path = path
@@ -466,12 +466,12 @@ class AvatarEditorApp(ctk.CTk):
             self.lbl_status.configure(text="⚠ 保存失敗: ファイルが使用中です")
             self.attributes("-topmost", False)
             messagebox.showerror("保存エラー", f"ファイルへの書き込み権限がありません:\n{self.image_path}")
-            self.attributes("-topmost", True)
+            self.lift()
         except Exception as e:
             self.lbl_status.configure(text=f"⚠ 保存失敗: {e}")
             self.attributes("-topmost", False)
             messagebox.showerror("保存エラー", f"画像の保存に失敗しました:\n{e}")
-            self.attributes("-topmost", True)
+            self.lift()
 
     # ==========================================
     # 画像編集ロジック (Undo/Redo 含む)
@@ -554,12 +554,12 @@ class AvatarEditorApp(ctk.CTk):
         except ImportError:
             self.attributes("-topmost", False)
             messagebox.showerror("インポートエラー", "rembg ライブラリがロードできません。仮想環境の依存関係を確認してください。")
-            self.attributes("-topmost", True)
+            self.lift()
             self.lbl_status.configure(text="AI背景透過に失敗しました（ライブラリ不在）")
         except Exception as e:
             self.attributes("-topmost", False)
             messagebox.showerror("エラー", f"AI背景透過実行中にエラーが発生しました:\n{e}")
-            self.attributes("-topmost", True)
+            self.lift()
             self.lbl_status.configure(text="AI背景透過エラー")
 
     # ==========================================
